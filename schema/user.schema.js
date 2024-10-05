@@ -13,6 +13,16 @@ export const UserSchema = new Schema({
     role: {
         type: String, enum: ['user', 'admin', 'superAdmin'], default: 'user'
     },
+    follower: {
+        type: [{ type: Schema.Types.ObjectId }],
+        ref: 'User',
+        required: false
+    },
+    following: {
+        type: [{ type: Schema.Types.ObjectId }],
+        ref: 'User',
+        required: false
+    },
     created_at: {
         type: Date, default: Date.now
     }
